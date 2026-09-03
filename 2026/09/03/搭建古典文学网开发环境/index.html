@@ -13,21 +13,21 @@
 <meta property="og:site_name" content="XiaoBai">
 <meta property="og:description" content="从零开始搭建一个完整的全栈Web项目开发环境，包含Python&#x2F;Flask后端 + Vue.js前端 + MySQL数据库，每一步都有截图位置和避坑提示。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cpython_download.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cinstall_python.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cinstall_python1.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Ccheck_python.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cinstall_mysql.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cflask.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cflask_finish.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cset_vue1.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cset_vue2.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cset_vue3.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cn.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cvue.png">
-<meta property="og:image" content="http://example.com/%5Cimages%5Cvue_finish.png">
+<meta property="og:image" content="http://example.com/images/python_download.png">
+<meta property="og:image" content="http://example.com/images/install_python.png">
+<meta property="og:image" content="http://example.com/images/install_python1.png">
+<meta property="og:image" content="http://example.com/images/check_python.png">
+<meta property="og:image" content="http://example.com/images/install_mysql.png">
+<meta property="og:image" content="http://example.com/images/flask.png">
+<meta property="og:image" content="http://example.com/images/flask_finish.png">
+<meta property="og:image" content="http://example.com/images/set_vue1.png">
+<meta property="og:image" content="http://example.com/images/set_vue2.png">
+<meta property="og:image" content="http://example.com/images/set_vue3.png">
+<meta property="og:image" content="http://example.com/images/n.png">
+<meta property="og:image" content="http://example.com/images/vue.png">
+<meta property="og:image" content="http://example.com/images/vue_finish.png">
 <meta property="article:published_time" content="2026-09-03T07:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-03T01:49:07.286Z">
+<meta property="article:modified_time" content="2026-09-03T14:29:00.078Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="全栈开发">
 <meta property="article:tag" content="Python">
@@ -36,7 +36,7 @@
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="新手教程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/%5Cimages%5Cpython_download.png">
+<meta name="twitter:image" content="http://example.com/images/python_download.png">
   
     <link rel="alternate" href="/atom.xml" title="XiaoBai" type="application/atom+xml">
   
@@ -149,7 +149,7 @@
 </blockquote>
 <hr>
 <h2 id="🔧-任务一：搭建后端开发环境"><a href="#🔧-任务一：搭建后端开发环境" class="headerlink" title="🔧 任务一：搭建后端开发环境"></a>🔧 任务一：搭建后端开发环境</h2><h3 id="1️⃣-安装-Python（3-12-版本）"><a href="#1️⃣-安装-Python（3-12-版本）" class="headerlink" title="1️⃣ 安装 Python（3.12 版本）"></a>1️⃣ 安装 Python（3.12 版本）</h3><p><strong>Step 1：下载安装包</strong></p>
-<p><img src="/%5Cimages%5Cpython_download.png"></p>
+<p><img src="/images/python_download.png"></p>
 <p>去 Python 官网 <a target="_blank" rel="noopener" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> 下载 <code>Python 3.12.x</code> 的 Windows installer（64位）。</p>
 <p><strong>Step 2：安装（⚠️ 重点！）</strong></p>
 <p>双击安装包，<strong>一定要勾选</strong>这两个选项：</p>
@@ -158,19 +158,19 @@
 <li>✅ <code>Add python.exe to PATH</code></li>
 </ul>
 <p>然后点击 <code>Customize installation</code> → 进入高级选项。</p>
-<p><img src="/%5Cimages%5Cinstall_python.png"></p>
+<p><img src="/images/install_python.png"></p>
 <p>在高级选项中：</p>
 <ul>
 <li>勾选所有可选功能</li>
 <li><strong>安装路径不要选 Program Files</strong>（建议 <code>C:\Python312</code> 或 <code>D:\Python312</code>）</li>
 <li>点击 Install</li>
 </ul>
-<p><img src="/%5Cimages%5Cinstall_python1.png"></p>
+<p><img src="/images/install_python1.png"></p>
 <p><strong>Step 3：验证安装</strong></p>
 <p>打开命令行（Win+R → 输入 <code>cmd</code> → 回车），输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cimages%5Ccheck_python.png"></p>
+<p><img src="/images/check_python.png"></p>
 <p>看到版本号就说明成功了！🎉</p>
 <p><strong>Step 4：配置国内镜像（提速神器）</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> global.index-url https://mirrors.aliyun.com/pypi/simple</span><br></pre></td></tr></table></figure>
@@ -226,7 +226,7 @@
 </tbody></table>
 <hr>
 <h3 id="4️⃣-安装-MySQL-数据库"><a href="#4️⃣-安装-MySQL-数据库" class="headerlink" title="4️⃣ 安装 MySQL 数据库"></a>4️⃣ 安装 MySQL 数据库</h3><p><strong>Step 1：下载安装包</strong></p>
-<p><img src="/%5Cimages%5Cinstall_mysql.png"></p>
+<p><img src="/images/install_mysql.png"></p>
 <p>去 <a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/installer/">https://dev.mysql.com/downloads/installer/</a> 下载 MySQL Installer。</p>
 <p><strong>Step 2：安装</strong></p>
 <p>双击运行 → 选择安装类型：<strong>Full</strong>（完整安装）</p>
@@ -252,9 +252,9 @@
 <p><strong>方法二：命令行运行</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D:\MyProject\hiflask</span><br><span class="line">python App.py</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cimages%5Cflask.png"></p>
+<p><img src="/images/flask.png"></p>
 <h3 id="5️⃣-验证效果"><a href="#5️⃣-验证效果" class="headerlink" title="5️⃣ 验证效果"></a>5️⃣ 验证效果</h3><p>打开浏览器，访问 <code>http://127.0.0.1:5000</code></p>
-<p><img src="/%5Cimages%5Cflask_finish.png"></p>
+<p><img src="/images/flask_finish.png"></p>
 <p>看到 “Hello Flask” 就说明后端跑通了！🥳</p>
 <blockquote>
 <p>⚠️ <strong>停止运行</strong>：在终端按 <code>Ctrl+C</code> 即可关闭服务。</p>
@@ -331,15 +331,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm create vue@latest</span><br></pre></td></tr></table></figure>
 
 <p>你会看到一系列交互式提问，<strong>按下面的方式回答</strong>：</p>
-<p><img src="/%5Cimages%5Cset_vue1.png"></p>
-<p><img src="/%5Cimages%5Cset_vue2.png"></p>
-<p><img src="/%5Cimages%5Cset_vue3.png"></p>
+<p><img src="/images/set_vue1.png"></p>
+<p><img src="/images/set_vue2.png"></p>
+<p><img src="/images/set_vue3.png"></p>
 <p>创建成功后，你会看到提示：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">项目初始化完成，可执行以下命令：</span><br><span class="line">  cd hivue</span><br><span class="line">  cnpm install</span><br><span class="line">  cnpm run dev</span><br></pre></td></tr></table></figure>
 
 <h3 id="2️⃣-在-VS-Code-中打开项目-1"><a href="#2️⃣-在-VS-Code-中打开项目-1" class="headerlink" title="2️⃣ 在 VS Code 中打开项目"></a>2️⃣ 在 VS Code 中打开项目</h3><p>VS Code → <code>File</code> → <code>Open Folder</code> → 选择 <code>hivue</code> 文件夹。</p>
 <h3 id="3️⃣-配置换行符（重要！）"><a href="#3️⃣-配置换行符（重要！）" class="headerlink" title="3️⃣ 配置换行符（重要！）"></a>3️⃣ 配置换行符（重要！）</h3><p>VS Code 中按 <code>Ctrl+,</code> 打开设置 → 搜索 <code>eol</code> → 设置为 <code>\n</code>。</p>
-<p><img src="/%5Cimages%5Cn.png"></p>
+<p><img src="/images/n.png"></p>
 <blockquote>
 <p>这一步是为了避免 Windows 和 Linux 换行符不一致导致的问题。</p>
 </blockquote>
@@ -347,9 +347,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br><span class="line">cnpm run dev</span><br></pre></td></tr></table></figure>
 
 <p>启动成功后，终端会显示类似这样的信息：</p>
-<p><img src="/%5Cimages%5Cvue.png"></p>
+<p><img src="/images/vue.png"></p>
 <h3 id="5️⃣-验证效果-1"><a href="#5️⃣-验证效果-1" class="headerlink" title="5️⃣ 验证效果"></a>5️⃣ 验证效果</h3><p>打开浏览器，访问 <code>http://localhost:5173/</code></p>
-<p><img src="/%5Cimages%5Cvue_finish.png"></p>
+<p><img src="/images/vue_finish.png"></p>
 <p>看到 Vue 的默认页面就说明前端也跑起来了！🎉</p>
 <blockquote>
 <p>⚠️ <strong>常见报错解决</strong>：如果在运行 <code>cnpm</code> 时报错 <code>cnpm无法加载文件</code>，请以管理员身份打开 PowerShell，执行：</p>
