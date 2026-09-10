@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>XiaoBai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="鸿蒙应用开发（ArkTS）基础语法讲解说明：鸿蒙（HarmonyOS）应用开发官方主推语言是 ArkTS，它在 TypeScript 的基础上做了扩展与约束，专为声明式 UI 设计。本文所有语法均以 ArkTS为准。 学习前提：已安装 DevEco Studio，能创建一个空的 Stage 模型工程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XiaoBai">
+<meta property="og:url" content="http://example.com/2026/09/10/HarmonyOS_ArkTS_%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="XiaoBai">
+<meta property="og:description" content="鸿蒙应用开发（ArkTS）基础语法讲解说明：鸿蒙（HarmonyOS）应用开发官方主推语言是 ArkTS，它在 TypeScript 的基础上做了扩展与约束，专为声明式 UI 设计。本文所有语法均以 ArkTS为准。 学习前提：已安装 DevEco Studio，能创建一个空的 Stage 模型工程。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-09-10T03:46:14.685Z">
+<meta property="article:modified_time" content="2026-09-10T04:38:40.254Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="XiaoBai" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">XiaoBai</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">一个普通的不能再普通的普通人</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HarmonyOS_ArkTS_基础语法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/09/10/HarmonyOS_ArkTS_%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2026-09-10T03:46:14.685Z" itemprop="datePublished">2026-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="鸿蒙应用开发（ArkTS）基础语法讲解"><a href="#鸿蒙应用开发（ArkTS）基础语法讲解" class="headerlink" title="鸿蒙应用开发（ArkTS）基础语法讲解"></a>鸿蒙应用开发（ArkTS）基础语法讲解</h1><p>说明：鸿蒙（HarmonyOS）应用开发官方主推语言是 ArkTS，它在 TypeScript 的基础上做了扩展与约束，专为声明式 UI 设计。本文所有语法均以 ArkTS为准。</p>
+<p>学习前提：已安装 DevEco Studio，能创建一个空的 Stage 模型工程。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#%E4%B8%80%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">基础数据类型</a><ul>
+<li>1.1 <a href="#11-string-%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8F%8F%E8%BF%B0%E4%BF%A1%E6%81%AF">string 字符串：描述信息</a></li>
+<li>1.2 <a href="#12-number-%E6%95%B0%E5%AD%97%E8%AE%A1%E7%AE%97">number 数字：计算</a></li>
+<li>1.3 <a href="#13-boolean-%E5%B8%83%E5%B0%94%E5%88%A4%E6%96%AD%E7%9C%9F%E5%81%87">boolean 布尔：判断（真、假）</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%B8%B8%E9%87%8F%E7%9A%84%E5%AE%9A%E4%B9%89">常量的定义</a></li>
+<li><a href="#%E4%B8%89%E6%95%B0%E7%BB%84">数组</a></li>
+<li><a href="#%E5%9B%9B%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95">函数（方法）</a></li>
+<li><a href="#%E4%BA%94%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0">箭头函数</a></li>
+<li><a href="#%E5%85%AD%E7%BB%BC%E5%90%88%E5%B0%8F%E4%BE%8B%E5%AD%90">综合小例子</a></li>
+</ol>
+<hr>
+<h2 id="一、基础数据类型"><a href="#一、基础数据类型" class="headerlink" title="一、基础数据类型"></a>一、基础数据类型</h2><p>ArkTS 是<strong>强类型语言</strong>，变量必须有明确的类型。三种最核心的基础类型如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>关键字</th>
+<th>用途</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符串</td>
+<td><code>string</code></td>
+<td>描述信息、文本</td>
+<td><code>&quot;你好鸿蒙&quot;</code></td>
+</tr>
+<tr>
+<td>数字</td>
+<td><code>number</code></td>
+<td>计算、数值</td>
+<td><code>100</code>、<code>3.14</code></td>
+</tr>
+<tr>
+<td>布尔</td>
+<td><code>boolean</code></td>
+<td>判断真假</td>
+<td><code>true</code>、<code>false</code></td>
+</tr>
+</tbody></table>
+<h3 id="1-1-string-字符串：描述信息"><a href="#1-1-string-字符串：描述信息" class="headerlink" title="1.1 string 字符串：描述信息"></a>1.1 string 字符串：描述信息</h3><p>用来存放文字、描述性信息。可以用 <strong>双引号</strong> 或 <strong>单引号</strong>，推荐使用双引号。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 直接使用</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">name</span>: <span class="built_in">string</span> = <span class="string">&quot;鸿蒙开发者&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">message</span>: <span class="built_in">string</span> = <span class="string">&#x27;欢迎来到 ArkTS 世界&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 字符串拼接（+ 或 模板字符串）</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">greeting</span>: <span class="built_in">string</span> = <span class="string">&quot;你好，&quot;</span> + name</span><br><span class="line"><span class="keyword">let</span> <span class="attr">greeting2</span>: <span class="built_in">string</span> = <span class="string">`你好，<span class="subst">$&#123;name&#125;</span>，今年是 <span class="subst">$&#123;<span class="number">2026</span>&#125;</span> 年`</span>  <span class="comment">// 模板字符串，反引号</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 常用属性与方法</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="property">length</span>)        <span class="comment">// 长度：6</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name.<span class="title function_">toUpperCase</span>()) <span class="comment">// 转大写：&quot;鸿蒙开发者&quot;.toUpperCase()</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>重点提示</strong>：</p>
+<ul>
+<li>用 <code>`$&#123;变量&#125;`</code> 的方式（模板字符串）可以在字符串中直接嵌入变量，开发中最常用。</li>
+<li>ArkTS 中类型必须匹配，不能把数字直接赋值给字符串变量。</li>
+</ul>
+<hr>
+<h3 id="1-2-number-数字：计算"><a href="#1-2-number-数字：计算" class="headerlink" title="1.2 number 数字：计算"></a>1.2 number 数字：计算</h3><p>ArkTS 中所有数字都是 <code>number</code> 类型（整数、浮点数统一处理）。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">age</span>: <span class="built_in">number</span> = <span class="number">25</span>          <span class="comment">// 整数</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">price</span>: <span class="built_in">number</span> = <span class="number">9.99</span>      <span class="comment">// 浮点数</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">count</span>: <span class="built_in">number</span> = -<span class="number">10</span>       <span class="comment">// 负数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 基本计算</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">sum</span>: <span class="built_in">number</span> = <span class="number">10</span> + <span class="number">3</span>      <span class="comment">// 加：13</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">diff</span>: <span class="built_in">number</span> = <span class="number">10</span> - <span class="number">3</span>     <span class="comment">// 减：7</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">product</span>: <span class="built_in">number</span> = <span class="number">10</span> * <span class="number">3</span>  <span class="comment">// 乘：30</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">quotient</span>: <span class="built_in">number</span> = <span class="number">10</span> / <span class="number">3</span> <span class="comment">// 除：3.333...</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">remainder</span>: <span class="built_in">number</span> = <span class="number">10</span> % <span class="number">3</span> <span class="comment">// 取余：1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 复合运算</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">score</span>: <span class="built_in">number</span> = <span class="number">80</span></span><br><span class="line">score += <span class="number">10</span>  <span class="comment">// 等价于 score = score + 10，结果 90</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>常用数学方法</strong>（<code>Math</code> 对象）：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Math</span>.<span class="title function_">round</span>(<span class="number">3.6</span>)   <span class="comment">// 四舍五入：4</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="number">3.9</span>)   <span class="comment">// 向下取整：3</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">ceil</span>(<span class="number">3.1</span>)    <span class="comment">// 向上取整：4</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>) <span class="comment">// 最大值：5</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>) <span class="comment">// 最小值：1</span></span><br><span class="line"><span class="title class_">Math</span>.<span class="title function_">random</span>()      <span class="comment">// 随机数 [0, 1)</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-3-boolean-布尔：判断（真、假）"><a href="#1-3-boolean-布尔：判断（真、假）" class="headerlink" title="1.3 boolean 布尔：判断（真、假）"></a>1.3 boolean 布尔：判断（真、假）</h3><p>只有两个值：<code>true</code>（真）、<code>false</code>（假）。<strong>主要用于条件判断</strong>。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">isLogin</span>: <span class="built_in">boolean</span> = <span class="literal">true</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">isEmpty</span>: <span class="built_in">boolean</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 比较运算会产生 boolean 结果</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: <span class="built_in">number</span> = <span class="number">5</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">b</span>: <span class="built_in">number</span> = <span class="number">3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a &gt; b)   <span class="comment">// true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a === b) <span class="comment">// false（=== 表示严格相等）</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a !== b) <span class="comment">// true（不相等）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 逻辑运算</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">vip</span>: <span class="built_in">boolean</span> = <span class="literal">true</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">logged</span>: <span class="built_in">boolean</span> = <span class="literal">false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(vip &amp;&amp; logged)  <span class="comment">// 与（AND）：false</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(vip || logged)  <span class="comment">// 或（OR）：true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(!vip)           <span class="comment">// 非（NOT）：false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 用于 if 判断（最核心用途）</span></span><br><span class="line"><span class="keyword">if</span> (isLogin) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;已登录，进入主页&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;未登录，请先登录&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>比较符号速记</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&gt;</code> &#x2F; <code>&lt;</code></td>
+<td>大于 &#x2F; 小于</td>
+</tr>
+<tr>
+<td><code>&gt;=</code> &#x2F; <code>&lt;=</code></td>
+<td>大于等于 &#x2F; 小于等于</td>
+</tr>
+<tr>
+<td><code>===</code></td>
+<td>严格相等（值、类型都相同）</td>
+</tr>
+<tr>
+<td><code>!==</code></td>
+<td>不相等</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 推荐始终使用 <code>===</code> 和 <code>!==</code>，避免使用 <code>==</code>（会做类型转换，容易出错）。</p>
+</blockquote>
+<hr>
+<h2 id="二、常量的定义"><a href="#二、常量的定义" class="headerlink" title="二、常量的定义"></a>二、常量的定义</h2><p>常量使用 <code>const</code> 关键字定义，<strong>一旦赋值就不能再修改</strong>。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义常量（必须同时赋值）</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">PI</span>: <span class="built_in">number</span> = <span class="number">3.14159</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">APP_NAME</span>: <span class="built_in">string</span> = <span class="string">&quot;我的鸿蒙应用&quot;</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">MAX_COUNT</span>: <span class="built_in">number</span> = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// PI = 3.14   // ❌ 报错：无法分配到常量</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="let-vs-const-如何选择？"><a href="#let-vs-const-如何选择？" class="headerlink" title="let vs const 如何选择？"></a><code>let</code> vs <code>const</code> 如何选择？</h3><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>含义</th>
+<th>是否可修改</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>let</code></td>
+<td>变量</td>
+<td>✅ 可修改</td>
+<td>值会变化的（如计数、分数）</td>
+</tr>
+<tr>
+<td><code>const</code></td>
+<td>常量</td>
+<td>❌ 不可修改</td>
+<td>值固定不变（如配置、PI）</td>
+</tr>
+</tbody></table>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">score</span>: <span class="built_in">number</span> = <span class="number">0</span>   <span class="comment">// 分数会变化 → 用 let</span></span><br><span class="line">score = <span class="number">95</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">TAX_RATE</span>: <span class="built_in">number</span> = <span class="number">0.05</span>  <span class="comment">// 税率固定 → 用 const</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>最佳实践</strong>：默认优先用 <code>const</code>，只有当确定值需要修改时才改用 <code>let</code>，这样可以避免意外修改带来的 bug。</p>
+<hr>
+<h2 id="三、数组"><a href="#三、数组" class="headerlink" title="三、数组"></a>三、数组</h2><p>数组用来存放<strong>多个同类型的数据</strong>，用 <code>类型[]</code> 或 <code>Array&lt;类型&gt;</code> 声明。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 定义并初始化</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">numbers</span>: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="attr">names</span>: <span class="built_in">string</span>[] = [<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;李四&quot;</span>, <span class="string">&quot;王五&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 常用操作</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numbers.<span class="property">length</span>)  <span class="comment">// 长度：5</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(numbers[<span class="number">0</span>])      <span class="comment">// 取第一个元素：1（下标从 0 开始）</span></span><br><span class="line"></span><br><span class="line">numbers.<span class="title function_">push</span>(<span class="number">6</span>)              <span class="comment">// 末尾添加：→ [1,2,3,4,5,6]</span></span><br><span class="line">numbers.<span class="title function_">pop</span>()                <span class="comment">// 末尾删除：→ [1,2,3,4,5]</span></span><br><span class="line">numbers[<span class="number">1</span>] = <span class="number">20</span>              <span class="comment">// 修改：→ [1,20,3,4,5]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 遍历数组</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; names.<span class="property">length</span>; i++) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(names[i])</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更简洁的 for-of 遍历</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> name <span class="keyword">of</span> names) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>数组小结</strong>：</p>
+<ul>
+<li>下标从 <code>0</code> 开始（第 1 个元素是 <code>[0]</code>）</li>
+<li><code>push</code> 添加元素，<code>pop</code> 删除末尾元素</li>
+<li><code>length</code> 获取元素个数</li>
+</ul>
+<hr>
+<h2 id="四、函数（方法）"><a href="#四、函数（方法）" class="headerlink" title="四、函数（方法）"></a>四、函数（方法）</h2><p>函数（也叫方法）是把一段<strong>可重复使用的代码</strong>封装起来，需要时调用。</p>
+<h3 id="4-1-完整定义"><a href="#4-1-完整定义" class="headerlink" title="4.1 完整定义"></a>4.1 完整定义</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语法：function 函数名(参数: 类型): 返回值类型 &#123; ... &#125;</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params"><span class="attr">a</span>: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">result</span>: <span class="built_in">number</span> = <span class="title function_">add</span>(<span class="number">3</span>, <span class="number">5</span>)  <span class="comment">// result = 8</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-无返回值"><a href="#4-2-无返回值" class="headerlink" title="4.2 无返回值"></a>4.2 无返回值</h3><p>用 <code>void</code> 表示没有返回值：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params"><span class="attr">name</span>: <span class="built_in">string</span></span>): <span class="built_in">void</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`你好，<span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">sayHello</span>(<span class="string">&quot;小明&quot;</span>)  <span class="comment">// 输出：你好，小明</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-参数可以设置默认值"><a href="#4-3-参数可以设置默认值" class="headerlink" title="4.3 参数可以设置默认值"></a>4.3 参数可以设置默认值</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">greet</span>(<span class="params"><span class="attr">name</span>: <span class="built_in">string</span>, <span class="attr">greeting</span>: <span class="built_in">string</span> = <span class="string">&quot;你好&quot;</span></span>): <span class="built_in">string</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;greeting&#125;</span>，<span class="subst">$&#123;name&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">greet</span>(<span class="string">&quot;小红&quot;</span>)          <span class="comment">// &quot;你好，小红&quot;</span></span><br><span class="line"><span class="title function_">greet</span>(<span class="string">&quot;小红&quot;</span>, <span class="string">&quot;欢迎&quot;</span>)  <span class="comment">// &quot;欢迎，小红&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-可选参数（加-）"><a href="#4-4-可选参数（加-）" class="headerlink" title="4.4 可选参数（加 ?）"></a>4.4 可选参数（加 <code>?</code>）</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">printAge</span>(<span class="params"><span class="attr">age</span>?: <span class="built_in">number</span></span>): <span class="built_in">void</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (age !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`年龄：<span class="subst">$&#123;age&#125;</span>`</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;年龄未知&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">printAge</span>(<span class="number">20</span>)   <span class="comment">// 年龄：20</span></span><br><span class="line"><span class="title function_">printAge</span>()     <span class="comment">// 年龄未知</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、箭头函数"><a href="#五、箭头函数" class="headerlink" title="五、箭头函数"></a>五、箭头函数</h2><p>箭头函数是 ES6 &#x2F; ArkTS 中<strong>更简洁的函数写法</strong>，常用于回调、事件处理。</p>
+<h3 id="5-1-基本写法对比"><a href="#5-1-基本写法对比" class="headerlink" title="5.1 基本写法对比"></a>5.1 基本写法对比</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传统函数</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params"><span class="attr">a</span>: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数（等价）</span></span><br><span class="line"><span class="keyword">let</span> addArrow = (<span class="attr">a</span>: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span>): <span class="function"><span class="params">number</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-简写形式"><a href="#5-2-简写形式" class="headerlink" title="5.2 简写形式"></a>5.2 简写形式</h3><p>**当函数体只有一行 return 时，可以省略 <code>&#123;&#125;</code> 和 <code>return</code>**：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">add</span> = (<span class="params"><span class="attr">a</span>: <span class="built_in">number</span>, <span class="attr">b</span>: <span class="built_in">number</span></span>) =&gt; a + b</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>(<span class="number">2</span>, <span class="number">3</span>))  <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">square</span> = (<span class="params"><span class="attr">x</span>: <span class="built_in">number</span></span>) =&gt; x * x</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">square</span>(<span class="number">4</span>))  <span class="comment">// 16</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-无参数-单参数"><a href="#5-3-无参数-单参数" class="headerlink" title="5.3 无参数 &#x2F; 单参数"></a>5.3 无参数 &#x2F; 单参数</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无参数：括号不能省</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">sayHi</span> = (<span class="params"></span>) =&gt; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hi&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单参数：括号可以省略</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">double</span> = (<span class="params"><span class="attr">x</span>: <span class="built_in">number</span></span>) =&gt; x * <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-常见用途：数组操作"><a href="#5-4-常见用途：数组操作" class="headerlink" title="5.4 常见用途：数组操作"></a>5.4 常见用途：数组操作</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">numbers</span>: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// map：对每个元素做处理，返回新数组</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">doubled</span>: <span class="built_in">number</span>[] = numbers.<span class="title function_">map</span>(<span class="function"><span class="params">x</span> =&gt;</span> x * <span class="number">2</span>)  <span class="comment">// [2,4,6,8]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// filter：筛选满足条件的元素</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">evens</span>: <span class="built_in">number</span>[] = numbers.<span class="title function_">filter</span>(<span class="function"><span class="params">x</span> =&gt;</span> x % <span class="number">2</span> === <span class="number">0</span>)  <span class="comment">// [2,4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// forEach：遍历（不返回新数组）</span></span><br><span class="line">numbers.<span class="title function_">forEach</span>(<span class="function"><span class="params">x</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(x))</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-5-箭头函数-vs-普通函数：如何选择？"><a href="#5-5-箭头函数-vs-普通函数：如何选择？" class="headerlink" title="5.5 箭头函数 vs 普通函数：如何选择？"></a>5.5 箭头函数 vs 普通函数：如何选择？</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单回调、数组操作</td>
+<td>✅ 箭头函数（简洁）</td>
+</tr>
+<tr>
+<td>需要 <code>this</code> 动态绑定（类方法）</td>
+<td>⚠️ 普通函数</td>
+</tr>
+<tr>
+<td>UI 组件的事件回调</td>
+<td>✅ 箭头函数（最常见）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>💡 <strong>学习建议</strong>：初期两种都要会写，在鸿蒙 UI 开发中箭头函数使用非常频繁。</p>
+</blockquote>
+<hr>
+<h2 id="六、综合小例子"><a href="#六、综合小例子" class="headerlink" title="六、综合小例子"></a>六、综合小例子</h2><p>下面把以上知识串起来，写一个简单的”成绩统计”示例：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">CLASS_NAME</span>: <span class="built_in">string</span> = <span class="string">&quot;三年二班&quot;</span>  <span class="comment">// 常量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数：计算平均分</span></span><br><span class="line"><span class="keyword">let</span> calcAverage = (<span class="attr">scores</span>: <span class="built_in">number</span>[]): <span class="function"><span class="params">number</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> <span class="attr">sum</span>: <span class="built_in">number</span> = <span class="number">0</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> score <span class="keyword">of</span> scores) &#123;</span><br><span class="line">    sum += score</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sum / scores.<span class="property">length</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 普通函数：判断是否及格</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">isPass</span>(<span class="params"><span class="attr">score</span>: <span class="built_in">number</span></span>): <span class="built_in">boolean</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> score &gt;= <span class="number">60</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主逻辑</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">scores</span>: <span class="built_in">number</span>[] = [<span class="number">85</span>, <span class="number">92</span>, <span class="number">58</span>, <span class="number">76</span>, <span class="number">63</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="attr">average</span>: <span class="built_in">number</span> = <span class="title function_">calcAverage</span>(scores)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;CLASS_NAME&#125;</span> 的平均分是：<span class="subst">$&#123;average&#125;</span>`</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历输出每个同学是否及格</span></span><br><span class="line">scores.<span class="title function_">forEach</span>(<span class="function">(<span class="params">score, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> <span class="attr">result</span>: <span class="built_in">string</span> = <span class="title function_">isPass</span>(score) ? <span class="string">&quot;及格&quot;</span> : <span class="string">&quot;不及格&quot;</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`第 <span class="subst">$&#123;index + <span class="number">1</span>&#125;</span> 位同学：<span class="subst">$&#123;score&#125;</span> 分 → <span class="subst">$&#123;result&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>用到的知识点回顾</strong>：</p>
+<ul>
+<li><code>const</code> 常量、<code>let</code> 变量</li>
+<li><code>string</code> &#x2F; <code>number</code> &#x2F; <code>boolean</code> 三种基础类型</li>
+<li>数组 <code>number[]</code> 及 <code>forEach</code> 遍历</li>
+<li>普通函数 <code>isPass</code></li>
+<li>箭头函数 <code>calcAverage</code></li>
+<li>模板字符串 <code>`$&#123;&#125;`</code></li>
+<li>三元表达式 <code>条件 ? A : B</code></li>
+</ul>
+<hr>
+<h2 id="学习路线建议"><a href="#学习路线建议" class="headerlink" title="学习路线建议"></a>学习路线建议</h2><ol>
+<li>✅ 掌握本文三种基础类型 + <code>let</code> &#x2F; <code>const</code></li>
+<li>⏭️ 学习 <strong>类（class）</strong> 与 <strong>接口（interface）</strong></li>
+<li>⏭️ 学习 ArkUI 声明式组件（<code>@Component</code>、<code>build()</code>）</li>
+<li>⏭️ 学习状态管理（<code>@State</code>、<code>@Prop</code>、<code>@Link</code>）</li>
+<li>⏭️ 实战：动手做一个小应用（待办清单、记账本）</li>
+</ol>
+<blockquote>
+<p>📖 官方文档参考：<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-syntax-0000001111963010">HarmonyOS ArkTS 语言基础</a></p>
+</blockquote>
+<hr>
+<p><em>本文档为 ArkTS 入门基础，适合零基础学习者。建议配合 DevEco Studio 动手敲一遍代码加深理解。</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/09/10/HarmonyOS_ArkTS_%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" data-id="cmtv1f23a000ix4vig046a94r" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/09/04/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">文件下载</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8F%A4%E5%85%B8%E6%96%87%E5%AD%A6%E7%BD%91%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">古典文学网项目实战</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%8B%E8%BD%BD/" rel="tag">下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" rel="tag">全栈开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" rel="tag">新手教程</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">下载</a> <a href="/tags/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">全栈开发</a> <a href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" style="font-size: 10px;">新手教程</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">September 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/09/10/HarmonyOS_ArkTS_%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/09/04/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2026/09/03/%E6%90%AD%E5%BB%BA%E5%8F%A4%E5%85%B8%E6%96%87%E5%AD%A6%E7%BD%91%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">【手把手教程】搭建&#34;古典文学网&#34;全栈开发环境（项目一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
